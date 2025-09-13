@@ -1,0 +1,20 @@
+{
+    "manifest_version": 3,
+    "name": "Convert to",
+    "version": "0.1.1",
+    "description": "lorem",
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Olá",
+        "default_icon": {
+            "16": "img/icon.png",
+            "48": "img/icon.png",
+            "128": "img/icon.png"
+        },
+        "icons": {
+            "16": "img/icon.png",
+            "48": "img/icon.png",
+            "128": "img/icon.png"
+        }
+    }
+}
