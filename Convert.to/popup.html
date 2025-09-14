@@ -8,18 +8,21 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
-<script src="https://kit.fontawesome.com/e77a76bf68.js" crossorigin="anonymous"></script>
+ <link 
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+  rel="stylesheet">
+
 
 <style>
   .btn-gradient {
     color: #fff;
-    background: linear-gradient(90deg, #2196f3, #44b678);
+    background: linear-gradient(90deg, #2196f3, #4c68e7);
     border: none;
     transition: 0.3s ease;
   }
 
   .btn-gradient:hover {
-    background: linear-gradient(90deg, #44b678, #2196f3);
+    background: linear-gradient(90deg, #4c68e7, #2196f3);
   }
 </style>
 
@@ -35,17 +38,16 @@
           <div class="row">
             <div class="col-xl">
               <div class="form-floating mb-3">
-                <select id="convertionTypeInput" class="form-select form-select-sm" aria-label="Select an option">
-                  <option value="length">Length</option>
+                <select id="conversionTypeInput" class="form-select form-select-sm" aria-label="Select an option">
+                  <option selected value="length">Length</option>
                   <option value="mass">Mass</option>
                   <option value="speed">Speed</option>
                   <option value="volume">Volume</option>
                   <option value="temperature">Temperature</option>
-                  <option value="time">Time</option>
                   <option value="energy">Energy</option>
                   <option value="pressure">Pressure</option>
                 </select>
-                <label for="convertionTypeInput">Select an option</label>
+                <label for="conversionTypeInput">Select an option</label>
               </div>
             </div>
           </div>
@@ -66,7 +68,7 @@
                   </select>
                   <label for="currentUnitInput">Current Unit</label>
                 </div>
-                <button type="button" class="btn btn-link" id="swapBtn"><i class="fa-solid fa-right-left"></i></button>
+                <button class="btn btn-link" type="button" id="swapBtn"><i class="fa-solid fa-right-left"></i></button>
                 <div class="form-floating mb-3">
                   <select id="targetUnitInput" class="form-select form-select-sm" aria-label="Target Unit">
                   </select>

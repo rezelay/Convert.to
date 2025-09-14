@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Convert to",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "description": "Quick and easy unit converter for everyday use directly in your browser",
     "action": {
         "default_popup": "popup.html",
