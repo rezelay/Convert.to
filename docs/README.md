@@ -1,6 +1,4 @@
-# 🌐 Convert.to
-
-GitHub: https://github.com/rezelay/Convert.to
+[GitHub](https://github.com/rezelay/Convert.to)
 
 ---
 
@@ -59,4 +57,4 @@ Convert.to/
 ---
 ## 📄 Licença
 
-Este projeto está sob a licença [MIT](../LICENSE).
+Este projeto está sob a licença [MIT](https://github.com/rezelay/Convert.to/blob/main/LICENSE).
