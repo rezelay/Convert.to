@@ -1,11 +1,11 @@
 {
     "manifest_version": 3,
     "name": "Convert to",
-    "version": "0.1.1",
-    "description": "lorem",
+    "version": "0.2.1",
+    "description": "Quick and easy unit converter for everyday use directly in your browser",
     "action": {
         "default_popup": "popup.html",
-        "default_title": "Olá",
+        "default_title": "Convert",
         "default_icon": {
             "16": "img/icon.png",
             "48": "img/icon.png",
