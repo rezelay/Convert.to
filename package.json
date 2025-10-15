@@ -1,0 +1,27 @@
+{
+  "name": "convert.to",
+  "version": "1.0.0",
+  "description": "GitHub: https://github.com/rezelay/Convert.to",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rezelay/Convert.to.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rezelay/Convert.to/issues"
+  },
+  "homepage": "https://github.com/rezelay/Convert.to#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^24.7.2"
+  }
+}
