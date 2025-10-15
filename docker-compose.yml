@@ -1,0 +1,8 @@
+services:
+  convertto:
+    container_name: convert-to
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
