@@ -37,7 +37,8 @@
           <div class="row">
             <div class="col-xl">
               <div class="form-floating mb-3">
-                <select id="conversionTypeInput" class="form-select form-select-sm" aria-label="Select an option">
+                <select 
+                  id="conversionTypeInput" data-testid="conversionTypeInput" class="form-select form-select-sm" aria-label="Select an option">
                   <option selected value="length">Length</option>
                   <option value="mass">Mass</option>
                   <option value="speed">Speed</option>
@@ -53,9 +54,15 @@
           <div class="row">
             <div class="col-xl">
               <div class="input-group mb-3">
-                <input type="number" id="quantityInput" class="form-control" placeholder="Enter a value"
-                  aria-label="quantity to convert">
-                <span class="input-group-text" id="shortUnitSpan"></span>
+                <input 
+                  type="number" 
+                  id="quantityInput" 
+                  data-testid="quantityInput"
+                  class="form-control" 
+                  placeholder="Enter a value"
+                  aria-label="quantity to convert"
+                >
+                  <span class="input-group-text" id="shortUnitSpan" data-testid="shortUnitSpan"></span>
               </div>
             </div>
           </div>
@@ -63,13 +70,13 @@
             <div class="col-xl">
               <div class="input-group">
                 <div class="form-floating mb-3">
-                  <select id="currentUnitInput" class="form-select form-select-sm" aria-label="Current Unit">
+                  <select id="currentUnitInput" data-testid="currentUnitInput" class="form-select form-select-sm" aria-label="Current Unit">
                   </select>
                   <label for="currentUnitInput">Current Unit</label>
                 </div>
-                <button class="btn btn-link" type="button" id="swapBtn"><i class="fa-solid fa-right-left"></i></button>
+                <button class="btn btn-link" type="button" id="swapBtn" data-testid="swapBtn"><i class="fa-solid fa-right-left"></i></button>
                 <div class="form-floating mb-3">
-                  <select id="targetUnitInput" class="form-select form-select-sm" aria-label="Target Unit">
+                  <select id="targetUnitInput" data-testid="targetUnitInput" class="form-select form-select-sm" aria-label="Target Unit">
                   </select>
                   <label for="targetUnitInput">Target Unit</label>
                 </div>
@@ -78,10 +85,10 @@
           </div>
           <div class="row">
             <div class="col-xl">
-              <h1 class="display-3 text-center" id="resultDisplay"></h1>
+              <h1 class="display-3 text-center" id="resultDisplay" data-testid="resultDisplay"></h1>
             </div>
           </div>
-          <button type="button" class="btn btn-primary btn-gradient w-100" id="convertBtn" style="font-size: 1.25rem;">
+          <button type="button" class="btn btn-primary btn-gradient w-100" id="convertBtn" data-testid="convertBtn" style="font-size: 1.25rem;">
             <b>Convert</b>
           </button>
         </div>
