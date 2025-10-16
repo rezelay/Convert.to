@@ -281,9 +281,14 @@ currentUnitInput.addEventListener('change', (event) => {
 
 convertBtn.addEventListener('click', () => {
   if (!quantityInput.value) { return ; }
-  const result = convert(quantityInput.value, currentUnitInput.value, targetUnitInput.value, conversionTypeInput.value);
+  const result = convert(
+    Number.parseFloat(quantityInput.value),
+    currentUnitInput.value,
+    targetUnitInput.value, 
+    conversionTypeInput.value
+  );
 
-  resultDisplay.innerHTML = result.toFixed(2);
+  resultDisplay.innerHTML = result.toFixed(5);
 });
 
 updateUnitsOnSelects(conversionTypeInput.value);
