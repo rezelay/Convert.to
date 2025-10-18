@@ -1,14 +1,14 @@
 import { test, expect } from '@playwright/test';
 
 test('Page load', async ({ page }) => {
-  await page.goto('http://localhost/');
+  await page.goto('/');
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Convert to/);
 });
 
 test('Swap button', async ({ page }) => {
-  await page.goto('http://localhost/');
+  await page.goto('/');
 
   const [swapBtn, currentUnitInput, targetUnitInput] = await Promise.all([
     page.getByTestId("swapBtn"),

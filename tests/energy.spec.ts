@@ -3,7 +3,7 @@ import { ConvertTest, Unit, TestScenario } from './common';
 
 test.describe('Energy units', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost/');
+    await page.goto('/');
   });
 
   const expectations: Partial<TestScenario>[] = [
