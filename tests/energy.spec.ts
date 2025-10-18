@@ -7,10 +7,10 @@ test.describe('Energy units', () => {
   });
 
   const expectations: Partial<TestScenario>[] = [
-    { inputValue: 1, currentUnit: "joule", targetUnit: "calorie", expected: 0.23901 },            // ≈ 0.239
-    { inputValue: 1, currentUnit: "joule", targetUnit: "kilocalorie", expected: 0.00024 },         // ≈ 0.000239
-    { inputValue: 1, currentUnit: "joule", targetUnit: "kilowatt_hour", expected: 0 },      // ≈ 2.7778e-7
-    { inputValue: 1, currentUnit: "joule", targetUnit: "btu", expected: 0.00095 }
+    { inputValue: 1, currentUnit: "joule", targetUnit: "calorie", expected: 0.2390057361376673 },            // ≈ 0.239
+    { inputValue: 1, currentUnit: "joule", targetUnit: "kilocalorie", expected: 0.0002390057361376673 },         // ≈ 0.000239
+    { inputValue: 1, currentUnit: "joule", targetUnit: "kilowatt_hour", expected: 2.7777777777777776e-7 },      // ≈ 2.7778e-7
+    { inputValue: 1, currentUnit: "joule", targetUnit: "btu", expected: 0.0009478133944988911 }
   ];
 
   expectations.forEach(({ currentUnit, targetUnit, inputValue, expected }) => {

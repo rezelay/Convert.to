@@ -288,7 +288,7 @@ convertBtn.addEventListener('click', () => {
     conversionTypeInput.value
   );
 
-  resultDisplay.innerHTML = result.toFixed(5);
+  resultDisplay.innerHTML = result;
 });
 
 updateUnitsOnSelects(conversionTypeInput.value);

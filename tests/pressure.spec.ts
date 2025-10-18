@@ -8,9 +8,9 @@ test.describe('Pressure units', () => {
 
   const expectations: Partial<TestScenario>[] = [
     { inputValue: 1, currentUnit: "pascal", targetUnit: "bar", expected: 0.00001 },
-    { inputValue: 1, currentUnit: "pascal", targetUnit: "atm", expected: 0.00001 },
-    { inputValue: 1, currentUnit: "pascal", targetUnit: "psi", expected: 0.00015 },
-    { inputValue: 1, currentUnit: "pascal", targetUnit: "mmHg", expected: 0.0075 },
+    { inputValue: 1, currentUnit: "pascal", targetUnit: "atm", expected: 0.000009869232667160129 },
+    { inputValue: 1, currentUnit: "pascal", targetUnit: "psi", expected: 0.0001450376807894691 },
+    { inputValue: 1, currentUnit: "pascal", targetUnit: "mmHg", expected: 0.007500637554192106 },
   ];
 
   expectations.forEach(({currentUnit, targetUnit, inputValue, expected}) => {

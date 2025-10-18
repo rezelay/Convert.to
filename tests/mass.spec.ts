@@ -10,8 +10,8 @@ test.describe('Mass units', () => {
     { inputValue: 1, currentUnit: "kilogram", targetUnit: "gram", expected: 1000 },
     { inputValue: 1, currentUnit: "kilogram", targetUnit: "milligram", expected: 1000000 },
     { inputValue: 1, currentUnit: "kilogram", targetUnit: "tonne", expected: 0.001 },
-    { inputValue: 1, currentUnit: "kilogram", targetUnit: "pound", expected: 2.20462 },
-    { inputValue: 1, currentUnit: "kilogram", targetUnit: "ounce", expected: 35.27399 },
+    { inputValue: 1, currentUnit: "kilogram", targetUnit: "pound", expected: 2.2046244201837775 },
+    { inputValue: 1, currentUnit: "kilogram", targetUnit: "ounce", expected: 35.27399072294044 },
   ];
 
   expectations.forEach(({currentUnit, targetUnit, inputValue, expected}) => {

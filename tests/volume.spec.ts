@@ -10,9 +10,9 @@ test.describe('Volume units', () => {
     { inputValue: 1, currentUnit: "liter", targetUnit: "milliliter", expected: 1000 },
     { inputValue: 1, currentUnit: "liter", targetUnit: "cubic_meter", expected: 0.001 },
     { inputValue: 1, currentUnit: "liter", targetUnit: "cubic_centimeter", expected: 1000 },
-    { inputValue: 1, currentUnit: "liter", targetUnit: "gallon_us", expected: 0.26417 },
-    { inputValue: 1, currentUnit: "liter", targetUnit: "gallon_uk", expected: 0.21997 },
-    { inputValue: 1, currentUnit: "liter", targetUnit: "cup", expected: 4.16667 }
+    { inputValue: 1, currentUnit: "liter", targetUnit: "gallon_us", expected: 0.26417217685798894 },
+    { inputValue: 1, currentUnit: "liter", targetUnit: "gallon_uk", expected: 0.21996924829908776 },
+    { inputValue: 1, currentUnit: "liter", targetUnit: "cup", expected: 4.166666666666667 }
   ];
 
   expectations.forEach(({ currentUnit, targetUnit, inputValue, expected }) => {
