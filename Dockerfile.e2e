@@ -1,0 +1,20 @@
+FROM mcr.microsoft.com/playwright:v1.55.1-jammy
+
+WORKDIR /DesafioI
+
+RUN apt update && \
+    curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt install -y nodejs && \
+    npm install -g npm
+
+# Instalar o Playwright e os navegadores necessários
+RUN npx playwright install --with-deps chromium
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+RUN node scripts/build-extension.mjs
+
+CMD ["npm","test"]

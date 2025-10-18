@@ -1,0 +1,13 @@
+services:
+  e2e:
+    container_name: convert-to-e2e
+    build:
+      context: ./
+      dockerfile: Dockerfile.e2e
+    environment:
+      - CI=true
+    volumes:
+      - ./:/convert-to
+    working_dir: /convert-to
+    command: npm run test:e2e
+    shm_size: 2gb

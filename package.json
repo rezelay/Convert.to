@@ -7,7 +7,10 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "playwright test"
+    "build": "node scripts/build-extension.mjs",
+    "test:e2e": "playwright test --reporter=list,html",
+    "test": "npm run build && npm run test:e2e",
+    "ci": "npm ci && npm run test"
   },
   "repository": {
     "type": "git",
@@ -22,6 +25,8 @@
   "homepage": "https://github.com/rezelay/Convert.to#readme",
   "devDependencies": {
     "@playwright/test": "^1.56.0",
-    "@types/node": "^24.7.2"
+    "@types/node": "^24.7.2",
+    "serve": "^14.2.5",
+    "archiver": "^7.0.1"
   }
 }
