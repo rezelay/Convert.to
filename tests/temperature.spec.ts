@@ -3,7 +3,7 @@ import { ConvertTest, Unit, TestScenario } from './common';
 
 test.describe('Temperature units', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/popup');
   });
 
   const expectations: Partial<TestScenario>[] = [

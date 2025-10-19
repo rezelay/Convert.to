@@ -21,9 +21,12 @@ jobs:
     
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+
+      - name: Build extension
+        run: npm run build
     
       - name: Start extension
-        run: npx serve -S src/popup.html
+        run: npx serve -S src/ &
 
       - name: Run E2E tests
         run: npm run test:e2e || npm run test:e2e -- --reporter=html
