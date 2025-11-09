@@ -16,7 +16,7 @@
   <link 
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
     rel="stylesheet" media="print" onload="this.media='all'">
-  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="manifest" href="./manifest.webmanifest">
 </head>
 
 <style>
@@ -120,7 +120,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register('/service-worker.js')
+        navigator.serviceWorker.register('./service-worker.js')
           .then(reg => console.log('Service Worker registered!'))
           .catch(err => console.error('Service Worker registration failed:', err));
         showConnectivityStatus();
