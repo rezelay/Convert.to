@@ -6,6 +6,7 @@ const targetUnitInput = document.getElementById('targetUnitInput');
 const swapBtn = document.getElementById('swapBtn');
 const resultDisplay = document.getElementById('resultDisplay');
 const convertBtn = document.getElementById('convertBtn');
+const lastUpdatedHeading = document.getElementById('lastUpdatedHeading');
 
 const units = {
   length: [
@@ -204,6 +205,9 @@ const convert = (value, fromUnit, toUnit, category) => {
   if (category === "temperature") {
     return conversionData.temperature.convert(value, fromUnit, toUnit);
   }
+  if (category === "currencies") {
+    return currencyConvert(value, fromUnit, toUnit);
+  }
 
   const factorFrom = conversionData[category].units[fromUnit];
   const factorTo = conversionData[category].units[toUnit];
@@ -211,7 +215,38 @@ const convert = (value, fromUnit, toUnit, category) => {
   return (value * factorFrom) / factorTo;
 }
 
+const updateCurrenciesOnSelects = async () => {
+  currentUnitInput.innerHTML = "";
+  targetUnitInput.innerHTML = "";
+
+  const currencies = await getCurrencies();
+  
+  for (const [code, name] of Object.entries(currencies)) {
+    if (!name) { continue; }
+    
+    const currentOption = document.createElement("option");
+    currentOption.value = code;
+    currentOption.textContent = `${code.toUpperCase()} - ${name}`;
+
+    const targetOption = document.createElement("option");
+    targetOption.value = code;
+    targetOption.textContent = `${code.toUpperCase()} - ${name}`;
+
+    currentUnitInput.appendChild(currentOption);
+    targetUnitInput.appendChild(targetOption);
+  };
+
+  if (Object.entries(currencies).length > 0) {
+    currentUnitInput.value = "usd";
+    updateUnitAbbr(currentUnitInput.value.toUpperCase());
+  }
+  if (Object.entries(currencies).length > 1) {
+    targetUnitInput.value = "brl";
+  }
+}
+
 const updateUnitsOnSelects = (type) => {
+  if (type === 'currencies') { return updateCurrenciesOnSelects(); } 
   const options = units[type];
 
   currentUnitInput.innerHTML = "";
@@ -242,7 +277,8 @@ const updateUnitsOnSelects = (type) => {
 const updateUnitAbbr = (unit) => {
   const abbr = abbreviations[unit];
   if (!abbr) {
-    shortUnitSpan.innerHTML = "";
+    shortUnitSpan.innerHTML = unit.toUpperCase();
+    return;
   }
 
   shortUnitSpan.innerHTML = abbr;  
@@ -288,7 +324,14 @@ convertBtn.addEventListener('click', () => {
     conversionTypeInput.value
   );
 
-  resultDisplay.innerHTML = result;
+  if (result instanceof Promise) {
+    result.then((r) => {
+      resultDisplay.innerHTML = r.result;
+      lastUpdatedHeading.innerHTML = `Last updated at: ${new Date(r.lastUpdated).toLocaleDateString()}`;
+    })
+  } else {
+    resultDisplay.innerHTML = result;
+  }
 });
 
 updateUnitsOnSelects(conversionTypeInput.value);
