@@ -7,9 +7,9 @@ test.describe('Speed units', () => {
   });
 
   const expectations: Partial<TestScenario>[] = [
-    { inputValue: 1, currentUnit: "meter_per_second", targetUnit: "kilometer_per_hour", expected: 3.5999971200023038 },
-    { inputValue: 1, currentUnit: "meter_per_second", targetUnit: "mile_per_hour", expected: 2.2369362920544025 },
-    { inputValue: 1, currentUnit: "meter_per_second", targetUnit: "knot", expected: 1.9438461717893492 },
+    { inputValue: 1, currentUnit: "meter_per_second", targetUnit: "kilometer_per_hour", expected: 3.6 },
+    { inputValue: 1, currentUnit: "meter_per_second", targetUnit: "mile_per_hour", expected: 2.2369 },
+    { inputValue: 1, currentUnit: "meter_per_second", targetUnit: "knot", expected: 1.9438 },
   ];
 
   expectations.forEach(({ currentUnit, targetUnit, inputValue, expected }) => {

@@ -294,6 +294,22 @@ const limitNumberPrecision = (input) => {
   }
 }
 
+function formatNumber(num) {
+  if (num === 0) return "0";
+
+  const abs = Math.abs(num);
+
+  const str = abs.toString();
+
+  const hasManyDecimals =
+    str.includes('.') && str.split('.')[1].length > 4;
+  if (abs >= 1_000_000 || (abs < 1 && hasManyDecimals)) {
+    return num.toExponential(2); // 2 significant digits
+  }
+
+  return parseFloat(num.toFixed(4)).toString();
+}
+
 swapBtn.addEventListener('click', () => {
   const temp = currentUnitInput.value;
 
@@ -313,7 +329,7 @@ conversionTypeInput.addEventListener('change', (event) => {
 
 currentUnitInput.addEventListener('change', (event) => {
   updateUnitAbbr(event.target.value);
-})
+});
 
 convertBtn.addEventListener('click', () => {
   if (!quantityInput.value) { return ; }
@@ -326,11 +342,11 @@ convertBtn.addEventListener('click', () => {
 
   if (result instanceof Promise) {
     result.then((r) => {
-      resultDisplay.innerHTML = r.result;
+      resultDisplay.innerHTML = formatNumber(r.result);
       lastUpdatedHeading.innerHTML = `Last updated at: ${new Date(r.lastUpdated).toLocaleDateString()}`;
     })
   } else {
-    resultDisplay.innerHTML = result;
+    resultDisplay.innerHTML = formatNumber(result);
   }
 });
 
