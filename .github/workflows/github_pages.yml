@@ -23,8 +23,8 @@ jobs:
         run: |
           npm ci
           npm run build
-          mkdir _site/convert
-          mkdir _site/docs
+          mkdir _site/convert -p
+          mkdir _site/docs -p
           mv dist _site/convert
 
       - name: Build docs
