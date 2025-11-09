@@ -25,11 +25,11 @@ jobs:
           npm run build
           mkdir _site/convert -p
           mkdir _site/docs -p
-          mv dist _site/convert
+          mv dist/* _site/convert
 
       - name: Build docs
         run: |
-          mv docs _site/docs
+          mv docs/* _site/docs
 
       - name: Upload to GitHub Pages
         uses: actions/upload-pages-artifact@v3
