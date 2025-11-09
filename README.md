@@ -2,10 +2,19 @@
 
 GitHub: https://github.com/rezelay/Convert.to
 
----
-
 Uma aplicação simples e intuitiva para conversão de unidades de medida.  
 Permite converter valores em diferentes categorias como comprimento, peso, volume, temperatura e mais, de forma rápida e prática.
+
+---
+
+## Changelog (Entrega Final)
+
+- Adicionado integração com API externa para dar suporte a nova funcionalidade de cotações de moedas
+- Adicionado suporte a PWA
+- Detecção de interrupções na conexão com a internet
+- Cache-first service worker
+- Publicação no GitHub Pages movida para uma Action
+- Novo passo do Lighthouse adicionado a Action existente anteriormente.
 
 ---
 
@@ -15,6 +24,7 @@ Permite converter valores em diferentes categorias como comprimento, peso, volum
 - Entrada de **valor numérico** a ser convertido.
 - Definição da **unidade de origem** e da **unidade de destino**.
 - Conversão **instantânea** com apenas um clique.
+- Conversões de **moedas** com cotações atualizadas diariamente
 - Interface clara e amigável, com suporte a diferentes unidades de medida.
 
 ---
