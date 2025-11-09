@@ -1,7 +1,7 @@
 import { Page, expect } from '@playwright/test';
 
-type ConvertType = "length" | "mass" | "speed" | "volume" | "temperature" | "energy" | "pressure";
-export type Unit = LengthUnit | MassUnit | SpeedUnit | VolumeUnit | TemperatureUnit | EnergyUnit | PressureUnit;
+type ConvertType = "length" | "mass" | "speed" | "volume" | "temperature" | "energy" | "pressure" | "currencies";
+export type Unit = LengthUnit | MassUnit | SpeedUnit | VolumeUnit | TemperatureUnit | EnergyUnit | PressureUnit | CurrencyUnit;
 
 type LengthUnit = "meter" | "kilometer" | "centimeter" | "millimeter" | "mile" | "yard" | "foot" | "inch";
 type MassUnit = "kilogram" | "gram" | "milligram" | "tonne" | "pound" | "ounce";
@@ -10,6 +10,7 @@ type VolumeUnit = "liter" | "milliliter" | "cubic_meter" | "cubic_centimeter" | 
 type TemperatureUnit = "celsius" | "fahrenheit" | "kelvin";
 type EnergyUnit= "joule" | "calorie" | "kilocalorie" | "kilowatt_hour" | "btu";
 type PressureUnit = "pascal" | "bar" | "atm" | "psi" | "mmHg";
+type CurrencyUnit = "usd" | "eur" | "gbp" | "jpy" | "brl";
 
 
 export interface TestScenario {
@@ -38,6 +39,10 @@ export const ConvertTest = async ({ page, type, inputValue, currentUnit, targetU
     page.getByTestId("convertBtn"),
   ]);
 
+  await expect(conversionTypeInput).toBeVisible();
+  await expect(currentUnitInput).toBeVisible();
+  await expect(targetUnitInput).toBeVisible();
+
   await conversionTypeInput.selectOption(type);
   await currentUnitInput.selectOption(currentUnit);
   await targetUnitInput.selectOption(targetUnit);
@@ -45,5 +50,8 @@ export const ConvertTest = async ({ page, type, inputValue, currentUnit, targetU
 
   await convertButton.click();
 
-  expect(Number.parseFloat(await resultDisplay.innerHTML())).toEqual(expected);
+  await page.waitForSelector('[data-testid="resultDisplay"]');
+  const result = await resultDisplay.innerHTML();
+ 
+  expect(Number.parseFloat(result)).toEqual(expected);
 }

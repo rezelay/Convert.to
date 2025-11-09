@@ -1,0 +1,11 @@
+{
+  "name": "Convert To",
+  "short_name": "ConvertTo",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2196f3",
+  "icons": [
+    { "src": "/img/icon.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

@@ -5,11 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Convert to</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    crossorigin="anonymous"
+    media="print"
+    onload="this.media='all'"
+  >
   <link 
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-    rel="stylesheet">
+    rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="manifest" href="/manifest.webmanifest">
 </head>
 
 <style>
@@ -31,7 +38,7 @@
       <h3 class="card-title text-center my-2">
         Convert to
       </h3>
-      <h6 class="card-subtitle mx-2 text-muted text-center">Convert anything instantly with just a click</h6>
+      <h5 class="card-subtitle mx-2 text-muted text-center">Convert anything instantly with just a click</h5>
       <div class="card-body">
         <div class="container">
           <div class="row">
@@ -46,6 +53,7 @@
                   <option value="temperature">Temperature</option>
                   <option value="energy">Energy</option>
                   <option value="pressure">Pressure</option>
+                  <option value="currencies">Currencies</option>
                 </select>
                 <label for="conversionTypeInput">Select an option</label>
               </div>
@@ -74,7 +82,7 @@
                   </select>
                   <label for="currentUnitInput">Current Unit</label>
                 </div>
-                <button class="btn btn-link" type="button" id="swapBtn" data-testid="swapBtn"><i class="fa-solid fa-right-left"></i></button>
+                <button class="btn btn-link" type="button" id="swapBtn" data-testid="swapBtn" aria-label="Swap Units"><i class="fa-solid fa-right-left"></i></button>
                 <div class="form-floating mb-3">
                   <select id="targetUnitInput" data-testid="targetUnitInput" class="form-select form-select-sm" aria-label="Target Unit">
                   </select>
@@ -91,17 +99,34 @@
           <button type="button" class="btn btn-primary btn-gradient w-100" id="convertBtn" data-testid="convertBtn" style="font-size: 1.25rem;">
             <b>Convert</b>
           </button>
+          <h6 class="my-2 text-muted text-center" id="lastUpdatedHeading"></h6>
+          <h6 class="my-2 text-muted text-center" id="onlineHeading"></h6>
         </div>
       </div>
     </div>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
     integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
     crossorigin="anonymous"></script>
+  
   <script src="main.js"></script>
+  <script src="api.js"></script>
+  <script src="offline.js"></script>
+  
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(reg => console.log('Service Worker registered!'))
+          .catch(err => console.error('Service Worker registration failed:', err));
+        showConnectivityStatus();
+      });
+    }
+  </script>
 </body>
 
 </html>
